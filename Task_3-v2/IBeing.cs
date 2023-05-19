@@ -14,7 +14,6 @@ namespace Task_3_v2
     class Human : IBeing
     {
         public string Type { get; }
-
         public Human(string type)
         {
             Type = type;
@@ -24,7 +23,6 @@ namespace Task_3_v2
     class Animal : IBeing
     {
         public string Type { get; }
-
         public Animal(string type)
         {
             Type = type;

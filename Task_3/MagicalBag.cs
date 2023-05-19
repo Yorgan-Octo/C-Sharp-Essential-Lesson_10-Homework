@@ -52,8 +52,6 @@ namespace Task_3
             Console.WriteLine("Отрымайте новый подарунок!");
         }
 
-
-
         Action<ConsoleColor, string> meseg = (ConsoleColor color, string info) =>
         {
             Console.ForegroundColor = color;
