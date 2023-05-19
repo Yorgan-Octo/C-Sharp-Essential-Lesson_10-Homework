@@ -26,7 +26,7 @@ namespace Task_3_v2
             if (!openedToday.ContainsKey(being.Type) || openedToday[being.Type] != DateTime.Today)
             {
 
-                meseg(ConsoleColor.Green, $"Подарунок: \\{gifts[new Random().Next(gifts.Count)]}\\ у чарівному мішечку для {being.Type}!");
+                meseg(ConsoleColor.Green, $"Подарунок: \"{gifts[new Random().Next(gifts.Count)]}\" у чарівному мішечку для {being.Type}!");
 
                 if (!openedToday.ContainsKey(being.Type))
                 {
