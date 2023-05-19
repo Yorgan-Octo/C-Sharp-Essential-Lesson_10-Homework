@@ -10,6 +10,22 @@ namespace Task_3
     {
         static void Main(string[] args)
         {
+
+            MagicalBag<IAnimal> magicalBag = new MagicalBag<IAnimal>();
+
+            SafariAnimal elf = new SafariAnimal(TypeEnimalEnum.Elf);
+            SafariAnimal dragon = new SafariAnimal(TypeEnimalEnum.Dragon);
+
+
+            magicalBag.OpenMagicalBag(elf);
+            magicalBag.OpenMagicalBag(dragon);
+            Console.WriteLine("------------------------");
+            magicalBag.OpenMagicalBag(elf);
+            magicalBag.OpenMagicalBag(dragon);
+
+
+            Console.ReadKey();
+
         }
     }
 }

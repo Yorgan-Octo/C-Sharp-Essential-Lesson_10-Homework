@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-    public interface IEnimal
+    public interface IAnimal
     {
-        string Name { get; }
+        TypeEnimalEnum TypeEnimal { get; }
+
+        DateTime LastOpenMB { get; set; }
+
     }
 }

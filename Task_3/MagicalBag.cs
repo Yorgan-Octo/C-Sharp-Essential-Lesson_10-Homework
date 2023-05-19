@@ -6,29 +6,48 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-    public class MagicalBag<T> where T : IEnimal
+
+    public class MagicalBag<T> where T : IAnimal
     {
+        private DateTime todayDate;
 
-        List<string> elfeGifts = new List<string>()
+        public void OpenMagicalBag(T animal)
         {
-            "elfeGifts Подарок 1",
-            "elfeGifts Подарок 2",
-            "elfeGifts Подарок 3",
-            "elfeGifts Подарок 4",
-            "elfeGifts Подарок 5",
-        };
+            todayDate = DateTime.Now;
 
-        List<string> humanGifts = new List<string>()
+            
+
+            if (animal.LastOpenMB.Date < todayDate.Date)
+            {
+                Random random = new Random();
+                int present;
+
+                int chance = (int)animal.TypeEnimal; // Шанс випадання залежно від типу істоти можно булоб також выкорыстовуввати масив
+                int randomNumber = random.Next(1, 101);
+
+                if (randomNumber <= chance)
+                {
+                    present = new Random().Next(20, 50);
+                }
+                else
+                {
+                    present = 10;
+                }
+
+                meseg(ConsoleColor.DarkGreen, $"Вам Подарок {present} монет");
+                animal.LastOpenMB = todayDate;
+            }
+            else
+            {
+                meseg(ConsoleColor.Red, "Вы уже получил подарок. Возвращайтесь завтра!");
+            }
+        }
+
+        Action<ConsoleColor, string> meseg = (ConsoleColor color, string info) =>
         {
-            "humanGifts Подарок 1",
-            "humanGifts Подарок 2",
-            "humanGifts Подарок 3",
-            "humanGifts Подарок 4",
-            "humanGifts Подарок 5",
+            Console.ForegroundColor = color;
+            Console.WriteLine(info);
+            Console.ResetColor();
         };
-
-
-
-
     }
 }
