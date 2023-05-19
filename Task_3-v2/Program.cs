@@ -16,21 +16,29 @@ namespace Task_3_v2
             Human john = new Human("John");
             Human mary = new Human("Mary");
 
-            magicalBag.OpenBag(john);
-            magicalBag.OpenBag(john);
-            magicalBag.OpenBag(mary);
+            while (true)
+            {
+
+                magicalBag.OpenBag(john);
+                magicalBag.OpenBag(john);
+                magicalBag.OpenBag(mary);
+
+                
 
 
-            Console.WriteLine("------------------------------------------------------");
-            Animal dog = new Animal("Dog");
-            Animal cat = new Animal("Cat");
 
-            magicalBag.OpenBag(dog);  
-            magicalBag.OpenBag(dog); 
-            magicalBag.OpenBag(cat);
+                Console.WriteLine("------------------------------------------------------");
+
+                Animal dog = new Animal("Dog");
+                Animal cat = new Animal("Cat");
+
+                magicalBag.OpenBag(dog);
+                magicalBag.OpenBag(dog);
+                magicalBag.OpenBag(cat);
 
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
 
         }
     }

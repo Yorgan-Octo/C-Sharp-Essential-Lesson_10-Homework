@@ -9,19 +9,24 @@ namespace Task_3_v2
     internal class MagicalBag<T> where T : IBeing
     {
 
-        List<string> openedToday;
+        Dictionary<string, DateTime> openedToday;
 
         public MagicalBag()
         {
-            openedToday = new List<string>();
+            openedToday = new Dictionary<string, DateTime>();
         }
 
         public void OpenBag(T being)
         {
-            if (!openedToday.Contains(being.Type))
+            if (!openedToday.ContainsKey(being.Type) || openedToday[being.Type] != DateTime.Today)
             {
+
                 Console.WriteLine($"Подарунок з'являється у чарівному мішечку для {being.Type}!");
-                openedToday.Add(being.Type);
+
+                if (!openedToday.ContainsKey(being.Type))
+                {
+                    openedToday.Add(being.Type, DateTime.Today);
+                }
             }
             else
             {
