@@ -8,6 +8,8 @@ namespace Task_3_v2
 {
     public class Program
     {
+
+
         static void Main(string[] args)
         {
 
@@ -24,9 +26,6 @@ namespace Task_3_v2
                 magicalBag.OpenBag(mary);
 
                 
-
-
-
                 Console.WriteLine("------------------------------------------------------");
 
                 Animal dog = new Animal("Dog");
