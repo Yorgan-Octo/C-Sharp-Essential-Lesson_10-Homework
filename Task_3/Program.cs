@@ -16,7 +16,6 @@ namespace Task_3
             SafariAnimal elf = new SafariAnimal(TypeEnimalEnum.Elf);
             SafariAnimal dragon = new SafariAnimal(TypeEnimalEnum.Dragon);
 
-
             magicalBag.OpenMagicalBag(elf);
             magicalBag.OpenMagicalBag(dragon);
             Console.WriteLine("------------------------");

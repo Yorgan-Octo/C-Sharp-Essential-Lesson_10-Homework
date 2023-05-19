@@ -15,8 +15,6 @@ namespace Task_3
         {
             todayDate = DateTime.Now;
 
-            
-
             if (animal.LastOpenMB.Date < todayDate.Date)
             {
                 Random random = new Random();

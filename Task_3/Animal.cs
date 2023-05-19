@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-
     public enum TypeEnimalEnum
     {
         Centaur = 12,
@@ -21,7 +20,5 @@ namespace Task_3
         public DateTime LastOpenMB { get; set; }
 
         public SafariAnimal(TypeEnimalEnum typeEnimal) => TypeEnimal = typeEnimal;
-
     }
-
 }
