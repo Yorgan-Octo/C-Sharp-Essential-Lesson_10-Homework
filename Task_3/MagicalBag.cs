@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,18 +11,21 @@ namespace Task_3
 
     public class MagicalBag<T> where T : IAnimal
     {
-        private DateTime todayDate;
+        List<string> openedToday;
+
+        public MagicalBag()
+        {
+            openedToday = new List<string>();
+        }
 
         public void OpenMagicalBag(T animal)
         {
-            todayDate = DateTime.Now;
-
-            if (animal.LastOpenMB.Date < todayDate.Date)
+            if (!openedToday.Contains(animal.Name))
             {
                 Random random = new Random();
                 int present;
 
-                int chance = (int)animal.TypeEnimal; // Шанс випадання залежно від типу істоти можно булоб також выкорыстовуввати масив
+                int chance = (int)animal.TypeEnimal; // Шанс випадання залежно від типу істоти можно булоб також выкорыстовуввати масив с подарунками
                 int randomNumber = random.Next(1, 101);
 
                 if (randomNumber <= chance)
@@ -32,14 +37,22 @@ namespace Task_3
                     present = 10;
                 }
 
-                meseg(ConsoleColor.DarkGreen, $"Вам Подарок {present} монет");
-                animal.LastOpenMB = todayDate;
+                meseg(ConsoleColor.DarkGreen, $"Вам {animal.Name} Подарок {present} монет");
+                openedToday.Add(animal.Name);
             }
             else
             {
-                meseg(ConsoleColor.Red, "Вы уже получил подарок. Возвращайтесь завтра!");
+                meseg(ConsoleColor.Red, $"Вы {animal.Name} уже получил подарок. Возвращайтесь завтра!");
             }
         }
+
+        public void ClearTodayList(object state)
+        {
+            openedToday.Clear();
+            Console.WriteLine("Отрымайте новый подарунок!");
+        }
+
+
 
         Action<ConsoleColor, string> meseg = (ConsoleColor color, string info) =>
         {

@@ -13,12 +13,14 @@ namespace Task_3
         Dragon = 36,
     }
 
-    public class SafariAnimal : IAnimal
+    public class Animal : IAnimal
     {
+        public string Name { get; }
         public TypeEnimalEnum TypeEnimal { get; }
-
-        public DateTime LastOpenMB { get; set; }
-
-        public SafariAnimal(TypeEnimalEnum typeEnimal) => TypeEnimal = typeEnimal;
+        public Animal(TypeEnimalEnum typeEnimal, string name)
+        {
+            TypeEnimal = typeEnimal;
+            Name = name;
+        }
     }
 }
