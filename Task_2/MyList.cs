@@ -10,7 +10,7 @@ namespace Task_2
     public class MyList<T>
     {
 
-        private T[] _items;
+        private T[] _items = new T[0];
         
         public int Count
         {
@@ -19,20 +19,27 @@ namespace Task_2
 
         public T this[int intdex]
         {
-            get { return _items[intdex]; }
+            get { 
+                
+                if (intdex >= 0 && intdex < _items.Length)
+                {
+                    return _items[intdex]; 
+
+                }
+
+                throw new ArgumentException("Вихід за межі");
+
+            }
         }
 
 
         public void Add(T item)
         {
-            if (_items == null)
-            {
-                _items = new T[0];
-            }
-         
 
+            //можно булоб зробити і церез  Array.Resize це для практики
             T[] tempItems = new T[_items.Length +1];
 
+            
             for (int i = 0; i < _items.Length; i++)
             {
                 tempItems[i] = _items[i];
